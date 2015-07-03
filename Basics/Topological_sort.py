@@ -12,6 +12,8 @@ http://blog.csdn.net/littlethunder/article/details/24113193
 http://www.cnblogs.com/Bob-FD/archive/2012/10/23/2736132.html
 http://www.geeksforgeeks.org/topological-sorting/
 """
+
+import collections
 class TopologicalSort():
     def __init__(self, vertex, edges):
         self.vertex = vertex
@@ -75,6 +77,7 @@ def topo2(v, e):
                 if edge[1] == node:
                     dfs(edge[0])
             stack.append(node)
+
         return
 
     for node in v:
@@ -82,6 +85,8 @@ def topo2(v, e):
     #while stack:
     #    print stack.pop()
     print stack
+
+
 
 def test2():
     v1=['a', 'b', 'c', 'd', 'e', 'f', 'k']
@@ -94,5 +99,18 @@ def test2():
     e2=[('k', 'f'), ('k', 'a'), ('f', 'd'), ('a','b'),('a','d'),('b','c'),('d','c'),('d','e'), ('d', 'f')]
     topo2(v2, e2)
 
+def test3():
+    v = [0, 1, 2]
+    e = [(1, 0), (2, 1)]
+    topo2(v, e)
+
+def test4():
+    g = collections.defaultdict(set)
+    g[2].add(3)
+    g[1].add(2)
+    g[0].add(1)
+    g[3].add(1)
+    top3(g)
+    
 if __name__ == '__main__':
-    test2()
+    test4()
