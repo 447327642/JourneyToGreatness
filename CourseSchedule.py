@@ -61,7 +61,7 @@ class Solution:
         queue = collections.deque([n for n in range(numCourses) if not graph[n]])
         count = 0
         while queue:
-            print queue
+            print queuex
             node = queue.popleft()
             count += 1
             for n in neighbors[node]:
