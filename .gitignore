@@ -9,9 +9,13 @@ temp*
 
 # C++
 *.out
+
 # OSX
 .DS_Store
 
 # Directory
 amazon/
+hackerrank/
 
+*.in
+*.out
