@@ -1,4 +1,14 @@
+# Solution to Dropbox challenge
+
 from collections import defaultdict
+
+"""
+   pattern = 'abba',    data = 'redbluebluered'       true
+   pattern = 'abba',    data = 'redblueyellowred'     false
+   pattern = 'aaaa',    data = 'redredredred'         true
+   pattern = 'abba',    data = redredredred'          false
+
+"""
 
 def match(pat, text):
     """ determine whether text match pat
@@ -12,7 +22,7 @@ def match(pat, text):
     pat2text = defaultdict(str)
     text2pat = defaultdict(str)
     return matchHelper(pat, 0, text, 0, pat2text, text2pat)
-    
+
 def matchHelper(pat, patIdx, text, textIdx, pat2text, text2pat):
     """ recursively match string
     Args:
@@ -54,8 +64,14 @@ def matchHelper(pat, patIdx, text, textIdx, pat2text, text2pat):
                 return True
     return False
 
+def test():
+    assert(match("aaa", "raiseraysraze") == 0)
+    assert(match("aabb", "redredblueblue") == 1)
 
-if __name__ == '__main__':
+def main():
     pattern = raw_input()
     text = raw_input()
     print int(match(pattern, text))
+
+if __name__ == '__main__':
+    test()
