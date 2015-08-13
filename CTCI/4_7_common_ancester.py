@@ -1,8 +1,9 @@
 """
 find common ancester in binary tree
+O(N)
 """
 # http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
-
+# http://articles.leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html
 from utils import TreeNode
 
 def commonAncesterHelper(root, node1, node2):

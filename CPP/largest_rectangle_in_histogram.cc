@@ -27,6 +27,7 @@ public:
                 maxval = max(maxval, height[curr] * (s.empty() ? i : i - s.top() - 1));
             }
         }
+	// remaining increasing
         while (!s.empty()) {
             int curr = s.top();
             s.pop();

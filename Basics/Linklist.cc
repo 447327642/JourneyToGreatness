@@ -20,6 +20,7 @@ ListNode *reverse(ListNode *head) {
 	now->next = prev;
 	prev = now;
     }
+    // tail->next is itself, let's point it to nullptr
     tail->next = nullptr;
     return now; // or prev
 }
