@@ -1,4 +1,5 @@
 def compression(string):
+    # TODO
     n = len(string)
     if not n:
         return string

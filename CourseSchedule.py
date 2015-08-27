@@ -72,4 +72,4 @@ class Solution:
 
 if __name__ == '__main__':
     so = Solution()
-    print so.canFinish2(6, [[1, 0], [3, 1], [4, 2], [2, 5]])
+    print so.canFinish(6, [[1, 0], [3, 1], [4, 2], [2, 5]])

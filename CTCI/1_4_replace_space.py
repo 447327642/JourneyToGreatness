@@ -15,5 +15,4 @@ def replace(string):
     rst += res[-1]
     return rst
 
-print replace("Mr John Smith      ")
-               
+print replace("Mr John  Smith      ")

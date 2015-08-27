@@ -24,8 +24,8 @@ def make_change(n, coins=[1, 5, 10, 25]):
     # base case
     dp[0] = 1
     for i in xrange(len(coins)):
-        #for j in xrange(coins[i], n+1):     # infinite backpack
-        for j in xrange(n, coins[i]-1, -1):  # 0-1 backpack
+        for j in xrange(coins[i], n+1):     # infinite backpack
+        # for j in xrange(n, coins[i]-1, -1):  # 0-1 backpack
             dp[j] += dp[j-coins[i]]
         print dp
     return dp[n]

@@ -1,0 +1,60 @@
+
+* Operating System
+**  给你一个资源池
+    每秒钟资源池会产生一定的资源，然后实现一个函数get(int num), 每次调用会取num那么多的资源
+*** 
+    一旦资源有 num 个，唤醒 get 函数，cond 就可以起来
+** assign/release unique ids
+   Implement two functions that assign/release unique id's from a pool. Memory 
+   usage should be minimized and the assign/release should be fast, even under 
+   high contention. assign(), release(int id)
+   多层，比方说 id range 为100， 中间层数组10， 每个代表10个，如果10个中有空缺，标记0。
+   
+*** use a bit vector. hash id to hid, assign: bits |= (1 << hid ), release: bits &= ~(1<<hid)
+    check: (bits >> hid) & 1 == True ?
+
+* Algorithm
+  assert() to check range
+** Fit in the lines [[http://machqr.blog.163.com/blog/static/5020129420091131249834/][装箱问题算法]]
+   Given a list of names (strings) and the width of a line, design an 
+   algorithm to display them using the minimum number of lines.
+*** 降序排列 name，然后每次尽量往前放。fit_name_in_lines.py
+** target sum
+*** target_sum.py
+** number to text
+*** number_text.py
+** hit gethit
+*** hit_gethit.py
+** arrange meetings
+    You have a number of meetings (with their start and end times). You need to
+    schedule them using the minimum number of rooms. Return the list of meetings in
+    every room.
+*** arrange_room.py
+** coin_changes
+
+* System Design
++ Data/ Operation/ Error
++ Abstraction/ Trade off
+** spell checker
++ number of words in dictionary is not very large 
+  (2 million, 5 letters each, 10 M memory)
++ check words in hash (preprocessing, handle tense, singular, plural)
++ Trie
+** shorten URL
+** crawler
+*** crawl_problem, crawler
+    + hashing way to check existence (set/ bloom filter) bloom filter 设置多个 lock， 容错。 
+    + crawl a website, 可能重的 href是首页，不可能有大量重复 link，所以可以针对爬的网站设一个 data structure
+    + general data structure sacrifice performance to achieve generality.
+*** BFS VS DFS
+    + A good designed website will not have much link depth (UX)
+    + BFS, the data from the same page are close to each other
+*** Error handling IO
+
+** LRU
+Design an LRU cache. It's a data struct with a capacity. Beyond this capacity
+the least recently used item is removed. You should be able to insert an
+element, access an element given its key, and delete an element, in constant
+time. Note that when you access an element, even if it's just for a read, it
+becomes the most recently used.
+*** Lru code

@@ -7,7 +7,7 @@ def hash32_1(filename):
     with open(filename) as f:
         content = f.read()
         return hash(content) & 0xffffffff
-    
+
 
 def get_all_files(path):
     file_list = []
@@ -24,6 +24,7 @@ def get_all_files2(path):
             if os.path.isdir(item):
                 dfs(item)
             else:
+                # if it is hard link/symbol link
                 file_list.append(os.path.realpath(item))
                 # if not enough memory, use yield
     dfs(path)
@@ -32,7 +33,7 @@ def get_all_files2(path):
 #print get_all_files(path)
 print get_all_files2(path)
 
-        
+
 #print get_all_files(path)
 
 file_by_size_dic = {}
@@ -60,12 +61,12 @@ def unique(file_list, hash_func = hash32, read_size = None):
                 buff = f.read(read_size)
             else:
                 buff = f.read()
-            
+
             if hash_func(buff) not in result:
                 result[hash_func(buff)] = [fname]
             else:
                 result[hash_func(buff)].append(fname)
-    
+
     unique_list = [result[key] for key in result]
     #print 'unique list', unique_list
     return unique_list
@@ -82,11 +83,3 @@ for k, v in file_by_size_dic.items():
     #for 2d_list in v:
      #   print 2d_list
 #print res
-
-
-
-
-    
-    
-
-
