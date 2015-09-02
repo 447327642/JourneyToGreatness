@@ -5,7 +5,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    int arr[] = {1,0,0,1,0,1,0,0,1,0};
+    //int arr[] = {1,0,0,1,0,1,0,0,1,0};
+    int arr[] = {1,1,1,1,1,0};
     int left = 0, right = sizeof(arr)/sizeof(int) - 1;
     while (left < right) {
 	while (arr[left] == 0)
