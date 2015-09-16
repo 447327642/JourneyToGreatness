@@ -12,27 +12,23 @@
 #include <vector>
 using namespace std;
 
-
 class Solution {
 public:
-    vector<int> twoSum(vector<int> &numbers, int target) {
+    vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int, int> map;
-        vector<int> res;
-        for (int i = 0; i < numbers.size(); i++) {
-            map[numbers[i]] = i;
-        }
-        for (int i = 0; i < numbers.size(); i++) {
-            int t = target - numbers[i];
-            // ensure not the same one
-            if (map.find(t) != map.end() && map[t] > i) {
-                res.push_back(i+1);
-                res.push_back(map[t]+1);
-                return res;
+        for (int i = 0; i < nums.size(); i++) {
+            int t = target - nums[i];
+            if (map.find(t) != map.end()) {
+                return vector<int>{map[t]+1, i+1};
+            } else {
+                map[nums[i]] = i;
             }
         }
-        return vector<int> {-1, -1};
+        return vector<int>{-1, -1};
     }
 };
+
+
 int main(int argc, char *argv[])
 {
 

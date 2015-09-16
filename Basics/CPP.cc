@@ -23,56 +23,34 @@ public:
     }
 }; 
 
-temlate <class T>
-class ShiftedList {
-    T* array;
-    int offset, size;
+void test1() {
+    Student stu;
+    stu.aboutMe();
+}
+
+
+class Base {
 public:
-    ShiftedList(int sz): offset(0), size(sz) {
-	array = new T[size];
-    }
-    
-    ~ShiftedList() {
-	delete [] array;
-    }
-    
-    void shiftBy(int n) {
-	offset = (offset + n) % size;
-    }
-
-    T getAt(int i) {
-	return array[convertIndex(i)];
-    }
-
-    void setAt(T item, int i) {
-	array[convertIndex(i)] = item;
-    }
-
-private:
-    int convertIndex(int i) {
-	int index = (i - offset) % size;
-	while (index < 0) index += size;
-	return index;
-    }
+    virtual void show() {cout<<"Base class\n"; }
+    void p() {cout<<"parent p\n";}
 };
 
+class Deri: public Base {
+public:
+    void show() {cout<<"Derived\n";}
+    void p() {cout<<"child p\n";}
 
-void String_find(string s) {
-    
+};
+
+void test2() {
+    Base *bp = new Deri;
+    //Base *bp = new Base;
+    bp->Base::p();
 }
 
 int main(int argc, char *argv[])
 {
-    Student stu;
-    stu.aboutMe();
-    /* ------------------------------- */
-    int size = 4;
-    ShiftedList<int> * list = new ShiftedLIst<int> (size);
-    for (int i = 0; i < size; i++) {
-	list->setAt(i, i);
-    }
-    cout << list->getAt(0) <<endl;
-    
+    test2();
     return 0;
 }
 
