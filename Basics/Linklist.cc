@@ -10,11 +10,11 @@ struct ListNode{
 };
 
 
-ListNode *reverse(ListNode *head) {
+ListNode* reverse(ListNode *head) {
     if (!head)
 	return nullptr;
     ListNode *prev = head, *succ = head, *now, *tail = head;
-    while(succ) {
+    while (succ) {
 	now = succ;
 	succ = succ->next;
 	now->next = prev;
@@ -23,6 +23,20 @@ ListNode *reverse(ListNode *head) {
     // tail->next is itself, let's point it to nullptr
     tail->next = nullptr;
     return now; // or prev
+}
+
+
+bool detectCycle(ListNode *head) {
+    if (!head)
+	return false;
+    ListNode *fast = head, *slow = head;
+    while (fast and fast->next) {
+	fast = fast->next->next;
+	slow = slow->next;
+	if (fast == slow)
+	    return true;
+    }
+    return false;
 }
 
 int main(int argc, char *argv[])
