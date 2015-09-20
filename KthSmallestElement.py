@@ -1,4 +1,4 @@
-# Definition for a  binary tree node
+# Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x, left=None, right=None):
         self.val = x
@@ -8,36 +8,41 @@ class TreeNode(object):
     def __str__(self):
         return str(self.val)
 
-def show(stack, p):
+
+def show(stack):
     print '[',
-    for i in stack:
-        print i,
+    for s in stack:
+        print s,
     print ']',
-    print p,
     
-class Solution:
-    # @param root, a tree node
-    # @return a list of integers
-    def inorderTraversal(self, root):
-        stack, res = [], []
+class Solution(object):
+    def kthSmallest(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        stack = []
+        cnt = 0
         p = root
-        while stack or p != None:
-            show(stack, p)
+        while stack or p:
+
             if p != None:
                 stack.append(p)
                 p = p.left
             else:
                 p = stack.pop()
-                print p,
-                res.append(p.val)
+                cnt += 1
+                if cnt == k:
+                    return p.val
                 p = p.right
-            print
-        return res
-    
+
+        return 0
+
+
 so = Solution()
 
 n2 = TreeNode(2, TreeNode(1), TreeNode(3))
 n6 = TreeNode(6, TreeNode(5), TreeNode(7))
 root = TreeNode(4, n2, n6)
-
-print so.inorderTraversal(root)
+print so.kthSmallest(root, 7)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# http://codereview.stackexchange.com/questions/43744/number-to-word-converter
 ByOne = [
 "zero",
 "one",
