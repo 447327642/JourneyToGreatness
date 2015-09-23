@@ -40,9 +40,3 @@ class Solution(object):
         return 0
 
 
-so = Solution()
-
-n2 = TreeNode(2, TreeNode(1), TreeNode(3))
-n6 = TreeNode(6, TreeNode(5), TreeNode(7))
-root = TreeNode(4, n2, n6)
-print so.kthSmallest(root, 7)
