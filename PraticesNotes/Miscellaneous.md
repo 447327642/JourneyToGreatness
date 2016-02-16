@@ -15,3 +15,4 @@ Cons: use too much space, hard to destroy
 
 ## 非入门算法
 + [用于二分图匹配的匈牙利算法](http://comzyh.com/blog/archives/148/)
++ [无限大N中取随机数（第i个以1/i的概率替换）](http://www.wikiwand.com/en/Reservoir_sampling)
