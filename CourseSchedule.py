@@ -1,5 +1,5 @@
 # DFS: https://leetcode.com/discuss/37781/60ms-concise-python-solution-using-topological-sort
-# delete the ndoe which indegree as 0: http://zhufangxing.com/2015/05/07/leetcode-ICourse%20Schedule/
+# delete the node which indegree as 0: http://zhufangxing.com/2015/05/07/leetcode-ICourse%20Schedule/
 
 import collections
 
@@ -29,7 +29,7 @@ class Solution:
             PATH, adjancy list
             curr, current node
             seen, a set to mark visited node of each edge[0]
-            A global set to mark valied node
+            searched, a global set to mark valied node
         Return:
             True if has cycle
         """
