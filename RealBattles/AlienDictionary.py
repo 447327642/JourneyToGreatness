@@ -55,7 +55,7 @@ def get_order(words):
         dfs(ch)
     return order
 
-words = ["baa", "baaa", "abcd", "abca", "cab", "cad", "d"]
+words = ["ab", "ac"]
 
 
 

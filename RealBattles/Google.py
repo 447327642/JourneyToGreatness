@@ -303,14 +303,14 @@ def union(x, y):
     
     
 def validTree():
-    edges = [(0, 1), (0, 2), (2, 3), (2, 4), (1, 2)]
+    edges = [(0, 1), (2, 3), (2, 4)]
     for edge in edges:
         if findset(edge[0]) == findset(edge[1]):
-            print edge[0], edge[2], findset(edge[0]), findset(edge[1])
+            print edge[0], edge[1], findset(edge[0]), findset(edge[1])
             return False
         else:
             #union(edge[0], edge[1])
-            p[edge[0]] = edge[1]
+            p[edge[1]] = edge[0]
         print p
 
     return True
