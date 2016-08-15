@@ -7,6 +7,9 @@
 \#*\#
 temp*
 
+# Vim
+# *.swp
+
 # C++
 *.out
 
